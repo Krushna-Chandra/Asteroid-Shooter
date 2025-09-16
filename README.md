@@ -1,8 +1,4 @@
-Got it 👍 Here’s a polished **README.md** file you can directly use in your repo:
 
----
-
-````markdown
 # 🌌 Asteroid Shooter 🎮
 
 [🚀 Live Demo](https://krushna-chandra.github.io/Asteroid-Shooter/)  
@@ -62,7 +58,6 @@ git clone https://github.com/krushna-chandra/Asteroid-Shooter.git
 cd Asteroid-Shooter
 
 # Open index.html in your browser
-````
 
 > ✅ No additional dependencies required. Works with any modern browser.
 
