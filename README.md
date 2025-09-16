@@ -60,7 +60,7 @@ cd Asteroid-Shooter
 # Open index.html in your browser
 
 > ✅ No additional dependencies required. Works with any modern browser.
-
+```
 ---
 
 ## 💻 Tech Stack
