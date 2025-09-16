@@ -7,8 +7,8 @@ An arcade-style browser game where you pilot a spaceship, shoot asteroids, and s
 
 ---
 ## 👁️ PREVIEW
-<img width="1919" height="825" alt="image" src="https://github.com/user-attachments/assets/d0b4b185-abfc-4f3b-a15c-4dda78e231cf" />   <img width="1104" height="746" alt="image" src="https://github.com/user-attachments/assets/8a2decaa-afe9-40f9-96be-3bb0a27cd38a" />  
-
+<img width="1919" height="825" alt="image" src="https://github.com/user-attachments/assets/d0b4b185-abfc-4f3b-a15c-4dda78e231cf" />
+<img width="1104" height="746" alt="image" src="https://github.com/user-attachments/assets/8a2decaa-afe9-40f9-96be-3bb0a27cd38a" />
 <img width="1919" height="817" alt="image" src="https://github.com/user-attachments/assets/5173531b-1a9a-408c-a7db-d43279822fb0" />
 ---
 
