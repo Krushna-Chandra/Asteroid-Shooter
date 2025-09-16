@@ -1,0 +1,116 @@
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Press Start 2P', cursive;
+            overflow: hidden;
+        }
+
+        .screen {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        #game-container {
+            position: relative;
+            border: 3px solid #0f0;
+            box-shadow: 0 0 20px #0f0, inset 0 0 10px #0f0;
+            background: #000 url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><g fill-opacity="0.3"><circle fill="%23fff" cx="10" cy="10" r="1"/><circle fill="%23fff" cx="30" cy="50" r="1"/><circle fill="%23fff" cx="80" cy="20" r="1"/><circle fill="%23fff" cx="50" cy="80" r="1"/><circle fill="%23fff" cx="90" cy="90" r="1"/><circle fill="%23fff" cx="70" cy="60" r="1"/></g></svg>') repeat;
+            animation: space-scroll 10s linear infinite;
+            display: none; /* Hidden by default */
+        }
+
+        @keyframes space-scroll {
+            from { background-position: 0 0; }
+            to { background-position: 0 200px; }
+        }
+
+        canvas {
+            display: block;
+            background-color: transparent;
+        }
+
+        #ui-container {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            text-shadow: 0 0 5px #0f0;
+            user-select: none;
+        }
+
+        #home-screen {
+            display: flex; /* Shown by default */
+            border: 2px solid #0f0;
+            box-shadow: 0 0 15px #0f0;
+        }
+
+        #home-screen h1 {
+            font-size: 64px;
+            color: #0f0;
+            margin: 0 0 40px 0;
+            text-shadow: 0 0 20px #0f0;
+            line-height: 1.1;
+        }
+
+        #level-selection-screen {
+            display: none; /* Hidden by default */
+            border: 2px solid #0f0;
+            box-shadow: 0 0 15px #0f0;
+        }
+
+        #level-selection-screen h1, #game-over-screen h1 {
+            font-size: 48px;
+            color: #0f0;
+            margin: 0 0 30px 0;
+            text-shadow: 0 0 10px #0f0;
+        }
+        
+        #game-over-screen h1 {
+            color: #f00;
+            text-shadow: 0 0 10px #f00;
+        }
+
+        #game-over-screen {
+             border: 2px solid #f00;
+            box-shadow: 0 0 15px #f00;
+        }
+
+        .level-button, #restart-button {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 20px;
+            padding: 15px 30px;
+            background: none;
+            border: 2px solid #0f0;
+            color: #0f0;
+            cursor: pointer;
+            box-shadow: 0 0 10px #0f0;
+            transition: all 0.2s ease;
+            margin: 10px;
+            width: 200px;
+        }
+
+        .level-button:hover, #restart-button:hover {
+            background-color: #0f0;
+            color: #000;
+            box-shadow: 0 0 20px #0f0;
+        }

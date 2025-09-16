@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteroid Shooter</title>
+    <link rel="shortcut icon" type="x-icon" href="logo.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div id="home-screen" class="screen">
+        <h1>ASTEROID<br>ASSAULT</h1>
+        <button id="play-button" class="level-button">PLAY</button>
+    </div>
+
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-container">
+            <div id="score">SCORE: 0</div>
+            <div id="lives">LIVES: 3</div>
+        </div>
+    </div>
+
+    <div id="level-selection-screen" class="screen">
+        <h1>SELECT LEVEL</h1>
+        <button class="level-button" data-difficulty="easy">EASY</button>
+        <button class="level-button" data-difficulty="medium">MEDIUM</button>
+        <button class="level-button" data-difficulty="hard">HARD</button>
+    </div>
+
+    <div id="game-over-screen" class="screen">
+        <h1>GAME OVER</h1>
+        <button id="restart-button">RESTART</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
