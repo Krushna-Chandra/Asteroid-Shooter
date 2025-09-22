@@ -10,6 +10,14 @@
         const livesEl = document.getElementById('lives');
         const levelButtons = document.querySelectorAll('#level-selection-screen .level-button');
 
+        // Touch controls
+        const touchControls = document.getElementById('touch-controls');
+        const moveLeftButton = document.getElementById('move-left');
+        const moveRightButton = document.getElementById('move-right');
+        const shootButton = document.getElementById('shoot-button');
+        let shootInterval = null;
+
+
         let isGameOver = false;
         let animationFrameId;
         
@@ -22,10 +30,20 @@
         };
 
         function setCanvasSize() {
-            canvas.width = window.innerWidth * 0.9;
-            canvas.height = window.innerHeight * 0.9;
-            if (canvas.width > 800) canvas.width = 800;
-            if (canvas.height > 600) canvas.height = 600;
+            const aspectRatio = 4 / 3;
+            let newWidth = window.innerWidth;
+            let newHeight = window.innerHeight;
+
+            if (newHeight < newWidth / aspectRatio) {
+                newWidth = newHeight * aspectRatio;
+            } else {
+                newHeight = newWidth / aspectRatio;
+            }
+
+            gameContainer.style.width = `${newWidth}px`;
+            gameContainer.style.height = `${newHeight}px`;
+            canvas.width = newWidth;
+            canvas.height = newHeight;
         }
 
         // --- Game Classes ---
@@ -428,6 +446,7 @@
 
         function gameOver() {
             isGameOver = true;
+            if (shootInterval) clearInterval(shootInterval);
             gameContainer.style.display = 'none';
             gameOverScreen.style.display = 'flex';
             cancelAnimationFrame(animationFrameId);
@@ -470,6 +489,38 @@
               player.y = canvas.height - player.height - 20;
            }
         });
+
+        // --- Touch Control Setup ---
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+        }
+
+        if (isTouchDevice()) {
+            touchControls.style.display = 'block';
+
+            moveLeftButton.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowLeft'] = true; });
+            moveLeftButton.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowLeft'] = false; });
+            moveRightButton.addEventListener('touchstart', (e) => { e.preventDefault(); keys['ArrowRight'] = true; });
+            moveRightButton.addEventListener('touchend', (e) => { e.preventDefault(); keys['ArrowRight'] = false; });
+            
+            shootButton.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                if (isGameOver || !player) return;
+                player.shoot(); 
+                if (shootInterval) clearInterval(shootInterval);
+                shootInterval = setInterval(() => {
+                    if (player) player.shoot();
+                }, 150);
+            });
+
+            const endShoot = (e) => {
+                e.preventDefault();
+                clearInterval(shootInterval);
+                shootInterval = null;
+            };
+            shootButton.addEventListener('touchend', endShoot);
+            shootButton.addEventListener('touchcancel', endShoot);
+        }
 
         // --- Initial Setup ---
         window.onload = function () {
